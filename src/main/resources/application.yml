@@ -1,0 +1,26 @@
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  application:
+    name: rabbit-producer
+  http:
+    encoding:
+      charset: UTF-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: NON_NULL
+    time-zone: GMT+8
+  rabbitmq:
+    # 集群地址，用逗号分隔
+    addresses: localhost:5672
+    connection-timeout: 15000
+    password: guest
+    # 使用启用消息确认模式
+    publisher-confirms: false
+    username: guest
+    virtual-host: /
+  logpath: '/Users/hongsenzhang/tkmq/logs/'
+tkmq:
+  exchange: 'ex.zhstest'
+  routingkey: 'zhs.mq'
+  messageFilePath: '/Users/hongsenzhang/tkmq/data/message.txt'
